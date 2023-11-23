@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20231123164052",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "reservation",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Reservation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "options": {
+        "onDelete": "CASCADE"
+      },
+      "otherEntityName": "parking",
+      "otherEntityRelationshipName": "reservations",
+      "relationshipName": "parking",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "serviceImpl"
+}

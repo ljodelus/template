@@ -1,0 +1,31 @@
+entity Parking {
+  @Id
+  code String required
+  parkingStatus ParkingStatus required
+  createBy String required
+  createDate Instant required
+  lastModifiedBy String
+  lastModifiedDate Instant
+}
+
+entity Reservation {
+  startDate Instant required
+  endDate Instant
+  createBy String required
+  createDate Instant required
+  lastModifiedBy String
+  lastModifiedDate Instant
+}
+
+enum ParkingStatus {
+  FREE, USE
+}
+
+relationship OneToMany {
+  @onDelete(CASCADE) Parking {reservations} to @onDelete(SETNULL) Reservation {parking required}
+}
+
+paginate all with pagination
+dto all with mapstruct
+service all with serviceImpl
+filter all

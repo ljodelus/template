@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20231123164051",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "parking",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"],
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "parkingStatus",
+      "fieldType": "ParkingStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "FREE,USE"
+    },
+    {
+      "fieldName": "createBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Parking",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "options": {
+        "onDelete": "SETNULL"
+      },
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "parking",
+      "relationshipName": "reservations",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
